@@ -62,8 +62,8 @@ export interface TaskTypeDetail {
     taskType: string;
 }
 export interface FormUpdate {
+    id:number,
     projectName:string,
     description:string,
-    categoryId:string,
-    creator: number,
+    categoryId:string
 }

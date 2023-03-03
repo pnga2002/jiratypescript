@@ -118,7 +118,7 @@ const Project=()=> {
       render: (data:ProjectModel) => (
         <>
           <div className="ant-employed d-flex align-items-center justify-content-center">
-            <Button style={{ fontSize: '12px', padding: '0px 15px 1px 14px', lineHeight: '14px', height: '36px' }} className="mx-2 table-action-button"  type="default">
+            <Button style={{ fontSize: '12px', padding: '0px 15px 1px 14px', lineHeight: '14px', height: '36px' }} className="mx-2 table-action-button"  type="default" onClick={() => { navigate(`updateProject/${data.id}`); }}>
               <EditOutlined />
             </Button>
             <Button style={{ fontSize: '12px', padding: '0px 14px 1px 14px', lineHeight: '14px', height: '36px' }}  className="table-action-button">

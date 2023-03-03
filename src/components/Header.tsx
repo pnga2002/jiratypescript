@@ -78,9 +78,6 @@ const Header = () => {
                         <li className="nav-item">
                             <NavLink to='' className="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">Create task</NavLink>
                         </li>
-                        <li className="nav-item">
-                            <NavLink to='/login' className="nav-link" >Login</NavLink>
-                        </li>
                     </ul>
                     <div className="d-flex">
                     <Dropdown
