@@ -27,9 +27,9 @@ const Login = () => {
   return (
     <div className="row">
       <div className="col-6">
-        <img className='w-100' src="./images/login-image.svg" alt="" />
+        <img className='w-100' src="./assets/img/login.jpg" alt="" />
       </div>
-      <div className="col-6 align-item-center">
+      <div className="col-6 d-flex justify-content-center align-items-center">
         <form className='container'  onSubmit={form.handleSubmit}>
           <h3 className="display-4">Login</h3>
           <div className="form-group">

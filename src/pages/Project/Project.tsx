@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { AutoComplete, Avatar, Button, Input, message, Modal, Popover, Table } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllProjectApi, getAllProjectSearchApi} from '../../redux/reducers/projectReducer'
+import { addUserToProjectApi, getAllProjectApi, getAllProjectSearchApi} from '../../redux/reducers/projectReducer'
 import { DeleteOutlined, EditOutlined, ExclamationCircleFilled } from '@ant-design/icons'
 import { DispatchType, RootState } from '../../redux/config-store'
 import { ProjectModel } from '../../interface/product'
 import { ColumnsType } from 'antd/es/table'
+import { getAllUserApi } from '../../redux/reducers/userReducer'
 
 
 const Project=()=> {
@@ -14,6 +15,7 @@ const Project=()=> {
   const navigate = useNavigate();
   const dispatch:DispatchType = useDispatch()
   const { allProject } = useSelector((state:RootState) => state.productReducer)
+  const { allUser } = useSelector((state:RootState) => state.userReducer)
   const { Search } = Input;
   const [value,setValue] = useState('');
   const onSearch = (value:string) => {
@@ -80,11 +82,11 @@ const Project=()=> {
               </Popover>
             </>
           })}
-          {/* <Popover
+          <Popover
                 title={"Add user"}
                 content={()=>{
                   return<AutoComplete 
-                    options={AllUsers?.map((user)=>{
+                    options={allUser?.map((user)=>{
                       return {label:user.name,value:user.userId.toString()}
                     })}
                     value={value}
@@ -107,7 +109,7 @@ const Project=()=> {
                 
               >
                 <Button>+</Button>
-              </Popover> */}
+              </Popover>
         </>
       )
     },

@@ -2,45 +2,28 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+##  Bạn mentor được các giờ nào trong tuần:
 
-In the project directory, you can run:
+    Các ngày trong tuần t2-t6 8h00 - 16h30
+    Chủ nhật cả ngày
 
-### `npm start`
+### Trong 1 ngày bạn dành ra bao nhiêu thời gian để check ib của học viên khi các bạn đó có thắc mắc ib trên group hoặc inbox riêng.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+    Em sẽ hỗ trợ các bạn học viên trong vòng 1 - 2h kể từ khi nhận câu hỏi 
+    Có thể teamviewer từ 20h-23h và buổi sáng
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Nếu nhận được 1 lỗi phát sinh 500 error server bạn sẽ xử lý như thế nào khi gặp những câu hỏi từ học viên, liệt kê các bước bạn sẽ xử lý.
 
-### `npm test`
+    - Tải lại trang hoặc refresh trang web
+    - Xóa bộ nhớ Cache ở trình duyệt
+    - Xóa đệm Cookies
+    - Kiểm tra code của học viên...
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Nếu được sắp vào khung giờ cố định thì công việc chính của bạn có ảnh hưởng đến việc mentor hay không ví dụ như OT ... 
 
-### `npm run build`
+    Em có nhiều thời gian trống nên sẽ không bị ảnh hưởng
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Tại sao bạn apply công việc này ?
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    Sau khóa học em thấy thích môi trường ở Cyberlearn nên em muốn thử sức. Mong anh chị cho em cơ hội <3
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

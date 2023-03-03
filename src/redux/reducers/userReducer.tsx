@@ -2,18 +2,19 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { message } from 'antd';
 import { AxiosResponse } from 'axios';
 import { history } from '../../App';
-import { SignInModel, LoginModel, RegisterModel } from '../../interface/user';
+import { SignInModel, LoginModel, RegisterModel, AllUser } from '../../interface/user';
 import { ACCESS_TOKEN, http, settings, USER_LOGIN } from '../../util/config';
 import { DispatchType } from '../config-store';
 // import bcrypt from "bcryptjs";
 
 type UserLoginState = {
     login:SignInModel | null,
-   
+    allUser:AllUser[]
 }
 
 const initialState:UserLoginState = {
-    login:null
+    login:null,
+    allUser:[]
 }
 
 const userReducer = createSlice({
@@ -25,11 +26,14 @@ const userReducer = createSlice({
             settings.setStorageJson(USER_LOGIN, aciton.payload)
             settings.setStorage(ACCESS_TOKEN, aciton.payload.accessToken)
             history.push('/')
-        }
+        },
+        getAllUserAction: (state:UserLoginState, action:PayloadAction<AllUser[]>) => {
+            state.allUser = action.payload
+        },
     }
 });
 
-export const { userloginAction } = userReducer.actions
+export const { userloginAction, getAllUserAction } = userReducer.actions
 
 export default userReducer.reducer
 
@@ -57,17 +61,17 @@ export const userRegisterApi = (userRegister:RegisterModel) => {
         }
     }
 }
-// export const getAllUserApi = (getUser) => {
-//     return async dispatch => {
-//         try {
-//             const result = await http.get(`/api/Users/getUser?keyword=${getUser}`)
-//             console.log(result.data.content)
-//             return dispatch(getAllUserAction(result.data.content))
-//         } catch (err) {
-//             // console.log(err)
-//         }
-//     }
-// }
+export const getAllUserApi = (getUser:any) => {
+    return async (dispatch:DispatchType) => {
+        try {
+            const result = await http.get(`/api/Users/getUser?keyword=${getUser}`)
+            console.log(result.data.content)
+            return dispatch(getAllUserAction(result.data.content))
+        } catch (err) {
+            // console.log(err)
+        }
+    }
+}
 // export const editUserApi = (user) => {
 //     return async dispatch => {
 //         try {

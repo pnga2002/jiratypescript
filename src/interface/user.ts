@@ -17,3 +17,10 @@ export interface SignInModel {
     name:        string;
     accessToken: string;
 }
+export interface AllUser {
+    userId: number,
+    name: string,
+    avatar: string,
+    email: string,
+    phoneNumber:string
+}

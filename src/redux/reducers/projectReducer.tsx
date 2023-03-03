@@ -73,8 +73,20 @@ export const editProjectApi = (id:number, updateProject:FormUpdate) => {
         try {
             const reuslt = await http.put(`/api/Project/updateProject?projectId=${id}`, updateProject)
             message.success(`${reuslt.data.message}`)
+        } catch (err:any) {
+            message.error(err.response.data.message)
+        }
+    }
+}
+export const addUserToProjectApi = (userProject:any) => {
+    return async (dispatch:DispatchType) => {
+        try {
+            const result = await http.post('/api/Project/assignUserProject',userProject)
+            
+            dispatch(getAllProjectApi());
+             message.success(`${result.data.message}`)
         } catch (err) {
-            return;
+            message.error('You are not the owner of this project')
         }
     }
 }
