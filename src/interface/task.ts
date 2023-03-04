@@ -15,3 +15,10 @@ export interface ArrTypeTask {
     id: number,
     taskType: string
 }
+export interface ArrUserByProjectId {
+    userId: number,
+      name: string,
+      avatar: string,
+      email: string,
+      phoneNumber: string
+}
