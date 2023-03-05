@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { AutoComplete, Avatar, Button, Input, message, Modal, Popover, Table } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
-import { addUserToProjectApi, getAllProjectApi, getAllProjectSearchApi} from '../../redux/reducers/projectReducer'
+import { addUserToProjectApi, delProjectApi, getAllProjectApi, getAllProjectSearchApi} from '../../redux/reducers/projectReducer'
 import { DeleteOutlined, EditOutlined, ExclamationCircleFilled } from '@ant-design/icons'
 import { DispatchType, RootState } from '../../redux/config-store'
 import { ProjectModel } from '../../interface/product'
@@ -123,7 +123,7 @@ const Project=()=> {
             <Button style={{ fontSize: '12px', padding: '0px 15px 1px 14px', lineHeight: '14px', height: '36px' }} className="mx-2 table-action-button"  type="default" onClick={() => { navigate(`updateProject/${data.id}`); }}>
               <EditOutlined />
             </Button>
-            <Button style={{ fontSize: '12px', padding: '0px 14px 1px 14px', lineHeight: '14px', height: '36px' }}  className="table-action-button">
+            <Button style={{ fontSize: '12px', padding: '0px 14px 1px 14px', lineHeight: '14px', height: '36px' }} onClick={() => { showDeleteConfirm(data.id); }} className="table-action-button">
               <DeleteOutlined style={{ color: '#e90000' }} />
             </Button>
           </div>
@@ -132,23 +132,23 @@ const Project=()=> {
     },
   ];
 
-//   const { confirm } = Modal;
-//   const showDeleteConfirm = (id) => {
-//     confirm({
-//       title: "Delete project",
-//       icon: <ExclamationCircleFilled />,
-//       content: `Project Id: ${id} id deleting? `,
-//       okText: "Đồng ý",
-//       okType: "primary",
-//       cancelText: "Không",
-//       onOk() {
-//         dispatch(delProjectApi(id))
-//       },
-//       onCancel() {
-//         console.log("Hủy");
-//       },
-//     });
-//   };
+  const { confirm } = Modal;
+  const showDeleteConfirm = (id:number) => {
+    confirm({
+      title: "Delete project",
+      icon: <ExclamationCircleFilled />,
+      content: `Project Id: ${id} id deleting? `,
+      okText: "Đồng ý",
+      okType: "primary",
+      cancelText: "Không",
+      onOk() {
+        dispatch(delProjectApi(id))
+      },
+      onCancel() {
+        console.log("Hủy");
+      },
+    });
+  };
 
   useEffect(() => {
     dispatch(getAllProjectApi())

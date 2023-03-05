@@ -24,11 +24,15 @@ const productReducer = createSlice({
       },
     getProjectDetailAction: (state:IinitialState, action:PayloadAction<ProjectDetail>) => {
         state.projectDetail = action.payload
-    }
+    },
+    
+    delProjectAction: (state:IinitialState, action) => {
+        state = action.payload
+    },
   }
 });
 
-export const { getAllProjectAction, getProjectDetailAction } = productReducer.actions
+export const { getAllProjectAction, getProjectDetailAction, delProjectAction } = productReducer.actions
 
 export default productReducer.reducer
 
@@ -91,4 +95,18 @@ export const addUserToProjectApi = (userProject:any) => {
     }
 }
 
+export const delProjectApi = (id:number) => {
+    return async (dispatch:DispatchType) => {
+        try {
+            const result = await http.delete(`/api/Project/deleteProject?projectId=${id}`)
+            dispatch(delProjectAction(result.data.content))
+            dispatch(getAllProjectApi());
+            message.success(`${result.data.message}`)
+        }
+        catch (err:any) {
+            message.error('You are not the owner of this project')
+
+        }
+    }
+}
 
